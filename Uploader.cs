@@ -1,19 +1,22 @@
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
-public class Uploader
+namespace pocsag_to_cloud
 {
-    CloudTable table;
-    public Uploader()
+    public class Uploader
     {
-        var storageAccount = CloudStorageAccount.Parse("");
-        var tableClient = storageAccount.CreateCloudTableClient();
-        var table = tableClient.GetTableReference("pocsag");
-        table.CreateIfNotExistsAsync();
-    }
+        readonly CloudTable table;
+        public Uploader()
+        {
+            var storageAccount = CloudStorageAccount.Parse("");
+            var tableClient = storageAccount.CreateCloudTableClient();
+            table = tableClient.GetTableReference("pocsag");
+            table.CreateIfNotExistsAsync();
+        }
     
-    public void UploadMessage(PocsagMessage message){
-        var insert = TableOperation.Insert(message);
-        table.ExecuteAsync(insert);
-    } 
+        public void UploadMessage(PocsagMessage message){
+            var insert = TableOperation.Insert(message);
+            table.ExecuteAsync(insert);
+        } 
+    }
 }

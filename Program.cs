@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleApplication
+namespace pocsag_to_cloud
 {
     public class Program
     {
@@ -9,7 +9,7 @@ namespace ConsoleApplication
             var uploader = new Uploader();
             while(true)
             {
-                string input = Console.In.ReadLine();
+                var input = Console.In.ReadLine();
                 var message = new PocsagMessage();
                 if (message.ParseMessage(input))
                 {
