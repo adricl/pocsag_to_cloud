@@ -8,7 +8,7 @@ public class Uploader
     {
         var storageAccount = CloudStorageAccount.Parse("");
         var tableClient = storageAccount.CreateCloudTableClient();
-        var table = tableClient.GetTableReference("people");
+        var table = tableClient.GetTableReference("pocsag");
         table.CreateIfNotExistsAsync();
     }
     
