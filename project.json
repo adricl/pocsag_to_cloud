@@ -16,7 +16,7 @@
           "version": "7.2.1"
         },
         "System.Text.RegularExpressions":{
-          "version": "1.0.0-*"
+          "version": "4.1.0"
         }
       },
       "imports": [
