@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
@@ -24,7 +25,8 @@ namespace pocsag_to_cloud
                 var message = new PocsagMessage();
                 if (message.ParseMessage(input))
                 {
-                    uploader.UploadMessage(message);
+                    if (!filterList.Contains(message.Address.ToString()))
+                        uploader.UploadMessage(message);
                 }
             }
         }
