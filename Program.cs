@@ -1,20 +1,31 @@
 ﻿using System;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace pocsag_to_cloud
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
-            var uploader = new Uploader();
-            while(true)
+            Settings settings;
+            if (args.Length > 0)
+                settings = LoadJsonSettings(args[0]);
+            else 
+                return -1;
+
+            var processor = new Processor(settings);
+            processor.Run();
+
+            return 0;
+        }
+        private static Settings LoadJsonSettings(string fileName)
+        {
+            using (var file = File.OpenText(fileName))
             {
-                var input = Console.In.ReadLine();
-                var message = new PocsagMessage();
-                if (message.ParseMessage(input))
-                {
-                    uploader.UploadMessage(message);
-                }
+                var json = file.ReadToEnd();
+                return JsonConvert.DeserializeObject<Settings>(json);
             }
         }
     }

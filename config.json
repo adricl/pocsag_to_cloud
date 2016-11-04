@@ -1,0 +1,8 @@
+{
+  "AzureConnectionString": "DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>",
+  "SkipAddresses": [
+    "0",
+    "1",
+    "1710"
+  ]
+}

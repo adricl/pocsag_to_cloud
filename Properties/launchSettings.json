@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "pocsag_to_cloud": {
+      "commandName": "Project",
+      "commandLineArgs": "config.json"
+    }
+  }
+}

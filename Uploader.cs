@@ -6,9 +6,9 @@ namespace pocsag_to_cloud
     public class Uploader
     {
         readonly CloudTable table;
-        public Uploader()
+        public Uploader(string azureConnectionString)
         {
-            var storageAccount = CloudStorageAccount.Parse("");
+            var storageAccount = CloudStorageAccount.Parse(azureConnectionString);
             var tableClient = storageAccount.CreateCloudTableClient();
             table = tableClient.GetTableReference("pocsag");
             table.CreateIfNotExistsAsync();
