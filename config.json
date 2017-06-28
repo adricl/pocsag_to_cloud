@@ -1,5 +1,7 @@
 {
   "AzureConnectionString": "DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>",
+  "PocsagTableName": "pocsag",
+  "AddressTableName": "addressPocsag",
   "SkipAddresses": [
     "0",
     "1",
