@@ -6,3 +6,4 @@ project.lock.json
 .DS_Store
 .vscode/
 /.vs
+config.json

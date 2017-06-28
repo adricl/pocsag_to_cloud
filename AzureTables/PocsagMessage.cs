@@ -2,7 +2,7 @@ using System;
 using System.Text.RegularExpressions;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace pocsag_to_cloud
+namespace pocsag_to_cloud.AzureTables
 {
     public class PocsagMessage : TableEntity
     {
